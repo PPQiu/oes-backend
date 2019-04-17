@@ -1,7 +1,8 @@
 package cn.aitechlab.oes.dao;
 
 import cn.aitechlab.oes.model.Examinee;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Param;
+
 
 public interface ExamineeMapper {
 
@@ -17,5 +18,5 @@ public interface ExamineeMapper {
 
     int updateByPrimaryKey(Examinee record);
 
-    Examinee getExamineeByuserID(String userId);
+    Examinee getExamineeByuserId(@Param("userId") String userId);
 }

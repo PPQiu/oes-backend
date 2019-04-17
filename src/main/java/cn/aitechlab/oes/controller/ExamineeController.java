@@ -3,6 +3,8 @@ package cn.aitechlab.oes.controller;
 import cn.aitechlab.oes.model.Examinee;
 import cn.aitechlab.oes.constsnt.Loginstate;
 
+import cn.aitechlab.oes.model.Vo.UserVo;
+import cn.aitechlab.oes.service.AdminService;
 import cn.aitechlab.oes.service.ExamineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,16 +22,31 @@ public class ExamineeController {
     @Autowired
     private ExamineeService examineeService;
 
+    @Autowired
+    private AdminService adminService;
+
     @PostMapping("/login")
 
-    public Loginstate login(@RequestBody Examinee examinee) {
-        String userId = examinee.userId;
-        String userName = examinee.userName;
-        String identityNum = examinee.identityNum;
-        Byte userType = examinee.userType;
-        Loginstate loginstate = examineeService.login(userId, userName, identityNum, userType);
-        return loginstate;
+
+    public Loginstate login(@RequestBody UserVo userVo) {
+
+        Byte userType = userVo.userType;
+
+        if(userType == 1){
+
+            Loginstate loginstate = examineeService.login(userVo);
+
+            return loginstate;
+        }else{
+
+            Loginstate loginstate = adminService.login(userVo);
+
+            return loginstate;
+        }
+
     }
 
 }
+
+
 

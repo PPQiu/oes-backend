@@ -1,6 +1,7 @@
 package cn.aitechlab.oes.dao;
 
 import cn.aitechlab.oes.model.Examinfo;
+import org.apache.ibatis.annotations.Param;
 
 public interface ExaminfoMapper {
 
@@ -21,7 +22,7 @@ public interface ExaminfoMapper {
 
     int updateByPrimaryKey(Examinfo record);
 
-    Examinfo selectExaminfoByUserID(String userID);
+    Examinfo selectExaminfoByUserID(@Param("userId") String userID);
 
 
 }

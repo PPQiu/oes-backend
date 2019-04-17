@@ -1,6 +1,8 @@
 package cn.aitechlab.oes.dao;
 
 import cn.aitechlab.oes.model.Admin;
+import cn.aitechlab.oes.model.Examinee;
+import org.apache.ibatis.annotations.Param;
 
 public interface AdminMapper {
 
@@ -20,4 +22,6 @@ public interface AdminMapper {
 
 
     int updateByPrimaryKey(Admin record);
+
+    Admin getAdminByadminId(@Param("adminId") String adminId);
 }

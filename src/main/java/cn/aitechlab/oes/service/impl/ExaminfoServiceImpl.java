@@ -5,6 +5,7 @@ import cn.aitechlab.oes.model.Examinfo;
 import cn.aitechlab.oes.service.ExaminfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Description: 作用描述
@@ -15,7 +16,8 @@ import org.springframework.stereotype.Service;
 public class ExaminfoServiceImpl implements ExaminfoService {
     @Autowired
     private ExaminfoMapper examinfoMapper;
-    public Examinfo findExaminfoByUserID(String userID){
+
+    public Examinfo findExaminfoByUserID(@RequestParam("userID") String userID){
         Examinfo examinfo = examinfoMapper.selectExaminfoByUserID(userID);
         return examinfo;
     }
