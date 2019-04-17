@@ -3,23 +3,24 @@ package cn.aitechlab.oes.model;
 import lombok.Data;
 
 @Data
-public class Examscore {
+public class ExamScore {
 
-    //成绩信息主键
+    //成绩表主键
 
     private Integer id;
 
-   //考生信息主键
+   //学号
 
-    private Integer examineeId;
+    private Integer userId;
 
-    //考试信息主键
+    //考试信息表主键
 
     private Integer examinfoId;
 
-    //考生成绩
+    //成绩
 
     private Integer examScore;
 
 
-    }
+
+   }

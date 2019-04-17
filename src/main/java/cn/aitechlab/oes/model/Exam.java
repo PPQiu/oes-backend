@@ -11,7 +11,7 @@ public class Exam {
 
     //考试信息主键
 
-    private Integer examinfoId;
+    private Integer ExamInfoId;
 
     //题库信息主键
 

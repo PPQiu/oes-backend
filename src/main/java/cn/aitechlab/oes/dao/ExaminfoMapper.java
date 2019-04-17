@@ -1,28 +1,30 @@
 package cn.aitechlab.oes.dao;
 
-import cn.aitechlab.oes.model.Examinfo;
+import cn.aitechlab.oes.model.ExamInfo;
 import org.apache.ibatis.annotations.Param;
 
-public interface ExaminfoMapper {
+import java.util.List;
+
+public interface ExamInfoMapper {
 
     int deleteByPrimaryKey(Integer id);
 
 
-    int insert(Examinfo record);
+    int insert(ExamInfo record);
 
 
-    int insertSelective(Examinfo record);
+    int insertSelective(ExamInfo record);
 
 
-    Examinfo selectByPrimaryKey(Integer id);
+    ExamInfo selectByPrimaryKey(Integer id);
 
 
-    int updateByPrimaryKeySelective(Examinfo record);
+    int updateByPrimaryKeySelective(ExamInfo record);
 
 
-    int updateByPrimaryKey(Examinfo record);
+    int updateByPrimaryKey(ExamInfo record);
 
-    Examinfo selectExaminfoByUserID(@Param("userId") String userID);
+    List<ExamInfo> selectExamInfoByUserId(@Param("userId") String userId);
 
 
 }

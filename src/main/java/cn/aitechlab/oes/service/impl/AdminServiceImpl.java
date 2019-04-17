@@ -20,6 +20,8 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
 
+    //管理员登录
+
     @Override
     public Loginstate login(UserVo userVo){
 

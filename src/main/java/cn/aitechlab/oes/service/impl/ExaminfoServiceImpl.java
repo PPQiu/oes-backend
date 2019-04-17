@@ -1,11 +1,13 @@
 package cn.aitechlab.oes.service.impl;
 
-import cn.aitechlab.oes.dao.ExaminfoMapper;
-import cn.aitechlab.oes.model.Examinfo;
-import cn.aitechlab.oes.service.ExaminfoService;
+import cn.aitechlab.oes.dao.ExamInfoMapper;
+import cn.aitechlab.oes.model.ExamInfo;
+import cn.aitechlab.oes.service.ExamInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * @Description: 作用描述
@@ -13,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @CreateDate: 2019/4/16 10:14
  */
 @Service
-public class ExaminfoServiceImpl implements ExaminfoService {
+public class ExamInfoServiceImpl implements ExamInfoService {
     @Autowired
-    private ExaminfoMapper examinfoMapper;
+    private ExamInfoMapper examInfoMapper;
 
-    public Examinfo findExaminfoByUserID(@RequestParam("userID") String userID){
-        Examinfo examinfo = examinfoMapper.selectExaminfoByUserID(userID);
-        return examinfo;
+    @Override
+    public List<ExamInfo> findExamInfoByUserId(@RequestParam("userId") String userId){
+        List<ExamInfo> examInfoList = examInfoMapper.selectExamInfoByUserId(userId);
+        return examInfoList;
     }
 }

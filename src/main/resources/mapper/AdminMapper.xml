@@ -87,4 +87,10 @@
       user_type = #{userType,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getAdminByadminId" resultType="Admin">
+        select admin_id,password from admin where admin_id=#{adminId}
+    </select>
+
+
 </mapper>

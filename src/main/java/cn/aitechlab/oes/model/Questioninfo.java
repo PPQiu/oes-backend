@@ -3,21 +3,21 @@ package cn.aitechlab.oes.model;
 import lombok.Data;
 
 @Data
-public class Questioninfo {
+public class QuestionInfo {
 
-    //题库信息主键
+    //题库主键
 
     private Integer id;
 
-   //题目类型
+    //题型
 
     private Integer questionType;
 
-    //题目难度
+    //难度
 
     private Integer questionLevel;
 
-    //题目内容
+    //题干
 
     private String questionContent;
 
@@ -25,7 +25,7 @@ public class Questioninfo {
 
     private String optionA;
 
-    //选项B
+   //选项B
 
     private String optionB;
 
@@ -37,20 +37,22 @@ public class Questioninfo {
 
     private String optionD;
 
-    //选项E
+    //选项D
 
     private String optionE;
 
-    //选项F
+    //选项E
 
     private String optionF;
 
-    //正确答案
+    //选项F
 
     private String correctAnswer;
 
-    //正确分数
+    //正确答案
 
     private Integer correctScore;
 
-    }
+
+
+   }

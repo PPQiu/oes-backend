@@ -99,7 +99,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getExamineeByuserID" resultType="Examinee">
+  <select id="getExamineeByuserId" resultType="Examinee">
         select user_id,user_name,identity_num,user_type from examinee where user_id=#{userId}
     </select>
 </mapper>

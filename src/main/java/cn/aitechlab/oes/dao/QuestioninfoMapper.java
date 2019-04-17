@@ -1,23 +1,23 @@
 package cn.aitechlab.oes.dao;
 
-import cn.aitechlab.oes.model.Questioninfo;
+import cn.aitechlab.oes.model.QuestionInfo;
 
-public interface QuestioninfoMapper {
+public interface QuestionInfoMapper {
 
     int deleteByPrimaryKey(Integer id);
 
 
-    int insert(Questioninfo record);
+    int insert(QuestionInfo record);
 
 
-    int insertSelective(Questioninfo record);
+    int insertSelective(QuestionInfo record);
 
 
-    Questioninfo selectByPrimaryKey(Integer id);
+    QuestionInfo selectByPrimaryKey(Integer id);
 
 
-    int updateByPrimaryKeySelective(Questioninfo record);
+    int updateByPrimaryKeySelective(QuestionInfo record);
 
 
-    int updateByPrimaryKey(Questioninfo record);
+    int updateByPrimaryKey(QuestionInfo record);
 }

@@ -1,23 +1,23 @@
 package cn.aitechlab.oes.dao;
 
-import cn.aitechlab.oes.model.Examscore;
+import cn.aitechlab.oes.model.ExamScore;
 
-public interface ExamscoreMapper {
+public interface ExamScoreMapper {
 
     int deleteByPrimaryKey(Integer id);
 
 
-    int insert(Examscore record);
+    int insert(ExamScore record);
 
 
-    int insertSelective(Examscore record);
+    int insertSelective(ExamScore record);
 
 
-    Examscore selectByPrimaryKey(Integer id);
+    ExamScore selectByPrimaryKey(Integer id);
 
 
-    int updateByPrimaryKeySelective(Examscore record);
+    int updateByPrimaryKeySelective(ExamScore record);
 
 
-    int updateByPrimaryKey(Examscore record);
+    int updateByPrimaryKey(ExamScore record);
 }

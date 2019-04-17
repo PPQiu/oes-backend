@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.aitechlab.oes.dao.ExaminfoMapper" >
-  <resultMap id="BaseResultMap" type="cn.aitechlab.oes.model.Examinfo" >
+<mapper namespace="cn.aitechlab.oes.dao.ExamInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.aitechlab.oes.model.ExamInfo" >
 
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="exam_subject" property="examSubject" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from examinfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.aitechlab.oes.model.Examinfo" >
+  <insert id="insert" parameterType="cn.aitechlab.oes.model.ExamInfo" >
 
     insert into examinfo (id, exam_subject, exam_name, 
       exam_content, exam_date, exam_time, 
@@ -37,7 +37,7 @@
       #{examContent,jdbcType=VARCHAR}, #{examDate,jdbcType=VARCHAR}, #{examTime,jdbcType=VARCHAR}, 
       #{totalTime,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.aitechlab.oes.model.Examinfo" >
+  <insert id="insertSelective" parameterType="cn.aitechlab.oes.model.ExamInfo" >
 
     insert into examinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -93,7 +93,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.aitechlab.oes.model.Examinfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.aitechlab.oes.model.ExamInfo" >
 
     update examinfo
     <set >
@@ -121,7 +121,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.aitechlab.oes.model.Examinfo" >
+  <update id="updateByPrimaryKey" parameterType="cn.aitechlab.oes.model.ExamInfo" >
 
     update examinfo
     set exam_subject = #{examSubject,jdbcType=VARCHAR},
@@ -134,13 +134,10 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectExaminfoByUserID" resultType="cn.aitechlab.oes.model.Examinfo">
-    select c.id,c.exam_name,c.exam_date,c.exam_time,c.total_time,c.exam_subject,c.exam_content,c.remark
-    from examinfo as c,examscore as b
-    where c.id=b.examinfo_id and
-    b.examinfo_id=( select b.examinfo_id from examinee as a,examscore as b where a.user_id=b.user_id)
-    order by c.id ASC
-    limit 1
+  <select id="selectExamInfoByUserId" resultType="ExamInfo">
+    select a.user_id,c.*
+    from examinee a,examscore b,examinfo c
+    where a.user_id=b.user_id and b.examinfo_id=c.id and a.user_id=#{userId}
 </select>
 </mapper>
 

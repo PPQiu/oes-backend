@@ -3,21 +3,21 @@ package cn.aitechlab.oes.model;
 import lombok.Data;
 
 @Data
-public class Answerinfo {
+public class AnswerInfo {
 
-    //答题信息表主键
+    //答题信息主键
 
     private Integer id;
 
-    //成绩信息表主键
+    //成绩表主键
 
     private Integer examscoreId;
 
-    //试卷主键
+    //试卷表主键
 
     private Integer examId;
 
-    //考生答案
+    //学生答案
 
     private String answer;
 
@@ -25,4 +25,4 @@ public class Answerinfo {
 
     private Byte flag;
 
-}
+    }

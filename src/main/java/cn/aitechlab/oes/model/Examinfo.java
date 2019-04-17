@@ -3,7 +3,7 @@ package cn.aitechlab.oes.model;
 import lombok.Data;
 
 @Data
-public class Examinfo {
+public class ExamInfo {
 
     //考试信息主键
 
