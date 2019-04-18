@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.aitechlab.oes.dao.ExamInfoMapper" >
   <resultMap id="BaseResultMap" type="cn.aitechlab.oes.model.ExamInfo" >
-
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="exam_subject" property="examSubject" jdbcType="VARCHAR" />
     <result column="exam_name" property="examName" jdbcType="VARCHAR" />
@@ -10,6 +9,15 @@
     <result column="exam_date" property="examDate" jdbcType="VARCHAR" />
     <result column="exam_time" property="examTime" jdbcType="VARCHAR" />
     <result column="total_time" property="totalTime" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ExamInfoDTOMap" type="cn.aitechlab.oes.dto.ExamInfoDTO" >
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="exam_subject" property="examSubject" jdbcType="VARCHAR" />
+    <result column="exam_name" property="examName" jdbcType="VARCHAR" />
+    <result column="exam_content" property="examContent" jdbcType="VARCHAR" />
+    <result column="exam_date" property="examDate" jdbcType="VARCHAR" />
+    <result column="exam_time" property="examTime" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -134,7 +142,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectExamInfoByUserId" resultType="ExamInfo">
+  <select id="selectExamInfoByUserId" resultMap="ExamInfoDTOMap">
     select a.user_id,c.*
     from examinee a,examscore b,examinfo c
     where a.user_id=b.user_id and b.examinfo_id=c.id and a.user_id=#{userId}

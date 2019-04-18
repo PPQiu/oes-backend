@@ -11,7 +11,7 @@ public class ExamScore {
 
    //学号
 
-    private Integer userId;
+    private String userId;
 
     //考试信息表主键
 

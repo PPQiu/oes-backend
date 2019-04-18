@@ -1,6 +1,9 @@
 package cn.aitechlab.oes.dao;
 
 import cn.aitechlab.oes.model.ExamScore;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ExamScoreMapper {
 
@@ -20,4 +23,6 @@ public interface ExamScoreMapper {
 
 
     int updateByPrimaryKey(ExamScore record);
+
+    List<ExamScore> selectExamScoreByUserId(@Param("userId") String userId);
 }
