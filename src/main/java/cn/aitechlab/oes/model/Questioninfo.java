@@ -7,15 +7,15 @@ public class QuestionInfo {
 
     //题库主键
 
-    private Integer id;
+    private String id;
 
     //题型
 
-    private Integer questionType;
+    private String questionType;
 
     //难度
 
-    private Integer questionLevel;
+    private String questionLevel;
 
     //题干
 
@@ -51,8 +51,20 @@ public class QuestionInfo {
 
     //正确答案
 
-    private Integer correctScore;
+    private String correctScore;
 
-
-
-   }
+    public QuestionInfo(String id, String questionType, String questionLevel, String questionContent, String optionA, String optionB, String optionC, String optionD, String optionE, String optionF, String correctAnswer, String correctScore) {
+        this.id = id;
+        this.questionType = questionType;
+        this.questionLevel = questionLevel;
+        this.questionContent = questionContent;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.optionE = optionE;
+        this.optionF = optionF;
+        this.correctAnswer = correctAnswer;
+        this.correctScore = correctScore;
+    }
+}

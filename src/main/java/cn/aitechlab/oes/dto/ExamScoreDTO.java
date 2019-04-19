@@ -12,10 +12,13 @@ public class ExamScoreDTO {
 
     private String userId;
 
+    private String userName;
+
     private String examDate;
 
-    private String examSubject;
+    public String examSubject;
 
-    private String examScore;
+    public String examScore;
+
 
 }

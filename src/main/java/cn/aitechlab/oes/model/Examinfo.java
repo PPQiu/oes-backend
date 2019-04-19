@@ -21,6 +21,7 @@ public class ExamInfo {
 
     private String examContent;
 
+
     //考试日期
 
     private String examDate;
@@ -37,4 +38,5 @@ public class ExamInfo {
 
     private String remark;
 
-    }
+
+}
