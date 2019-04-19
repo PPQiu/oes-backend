@@ -1,6 +1,6 @@
 package cn.aitechlab.oes.controller;
 
-import cn.aitechlab.oes.model.Examinee;
+import cn.aitechlab.oes.constsnt.FileUploadMessage;
 import cn.aitechlab.oes.constsnt.Loginstate;
 
 import cn.aitechlab.oes.model.Vo.UserVo;
@@ -8,6 +8,7 @@ import cn.aitechlab.oes.service.AdminService;
 import cn.aitechlab.oes.service.ExamineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
  * @CreateDate: 2019/4/15 15:49
  */
 @RestController
-@RequestMapping("/user")
 public class ExamineeController {
 
     @Autowired
@@ -25,8 +25,7 @@ public class ExamineeController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("/login")
-
+    @PostMapping("user/login")
 
     public Loginstate login(@RequestBody UserVo userVo) {
 
@@ -44,6 +43,12 @@ public class ExamineeController {
             return loginstate;
         }
 
+    }
+    @PostMapping("/upload/examineeInfo")
+    public FileUploadMessage uploadExamineeFile(@RequestParam MultipartFile file) {
+        FileUploadMessage fileUploadMessage = null;
+        fileUploadMessage = examineeService.uploadExamineeFile(file);
+        return fileUploadMessage;
     }
 
 }

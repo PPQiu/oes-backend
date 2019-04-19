@@ -1,7 +1,6 @@
 package cn.aitechlab.oes.service;
 
-import cn.aitechlab.oes.exception.FileUploadMessage;
-import cn.aitechlab.oes.model.QuestionInfo;
+import cn.aitechlab.oes.constsnt.FileUploadMessage;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -11,5 +10,5 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface QuestionInfoService {
 
-    FileUploadMessage uploadFile(MultipartFile file);
+    FileUploadMessage uploadQuestionFile(MultipartFile file);
 }

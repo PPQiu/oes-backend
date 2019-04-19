@@ -1,4 +1,4 @@
-package cn.aitechlab.oes.exception;
+package cn.aitechlab.oes.constsnt;
 
 public class FileUploadMessage {
     int Type;

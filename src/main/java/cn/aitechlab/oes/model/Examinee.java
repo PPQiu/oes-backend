@@ -7,7 +7,7 @@ public class Examinee {
 
     //考生信息主键
 
-    public Integer id;
+    public String id;
 
     //考生学号
 
@@ -23,7 +23,13 @@ public class Examinee {
 
     //用户类型
 
-    public Byte userType;
+    public String userType;
 
-
+    public Examinee(String id, String userId, String userName, String identityNum, String userType) {
+        this.id = id;
+        this.userId = userId;
+        this.userName = userName;
+        this.identityNum = identityNum;
+        this.userType = userType;
+    }
 }

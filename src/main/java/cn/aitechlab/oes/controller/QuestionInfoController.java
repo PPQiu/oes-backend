@@ -1,6 +1,6 @@
 package cn.aitechlab.oes.controller;
 
-import cn.aitechlab.oes.exception.FileUploadMessage;
+import cn.aitechlab.oes.constsnt.FileUploadMessage;
 import cn.aitechlab.oes.service.QuestionInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,11 +21,10 @@ public class QuestionInfoController {
     private QuestionInfoService questionInfoService;
 
     @PostMapping("/upload/question")
-    public FileUploadMessage upload(@RequestParam MultipartFile file) {
+    public FileUploadMessage uploadQuestion(@RequestParam MultipartFile file) {
         FileUploadMessage fileUploadMessage = null;
-        fileUploadMessage = questionInfoService.uploadFile(file);
+        fileUploadMessage = questionInfoService.uploadQuestionFile(file);
         return fileUploadMessage;
     }
-
 
 }

@@ -2,7 +2,7 @@ package cn.aitechlab.oes.service.impl;
 
 import cn.aitechlab.oes.utils.FileUtil;
 import cn.aitechlab.oes.dao.QuestionInfoMapper;
-import cn.aitechlab.oes.exception.FileUploadMessage;
+import cn.aitechlab.oes.constsnt.FileUploadMessage;
 import cn.aitechlab.oes.model.QuestionInfo;
 import cn.aitechlab.oes.service.QuestionInfoService;
 import org.apache.commons.lang.StringUtils;
@@ -23,7 +23,7 @@ public class QuestionInfoServiceImpl implements QuestionInfoService {
     private QuestionInfoMapper questionInfoMapper;
 
     @Override
-    public FileUploadMessage uploadFile(MultipartFile file) {
+    public FileUploadMessage uploadQuestionFile(MultipartFile file) {
         FileUploadMessage fileUploadMessage = new FileUploadMessage();
         //总行记录
         List<ArrayList<String>> readResult = null;
