@@ -54,9 +54,9 @@ public class QuestionInfoServiceImpl implements QuestionInfoService {
         }
 
         for (ArrayList<String> arr : readResult) {
-            QuestionInfo questionInfo=new QuestionInfo(arr.get(0),arr.get(1),arr.get(2),
+            QuestionInfo questionInfo=new QuestionInfo(Integer.valueOf(arr.get(0)),Integer.valueOf(arr.get(1)),Integer.valueOf(arr.get(2)),
                     arr.get(3),arr.get(4),arr.get(5),arr.get(6),arr.get(7),arr.get(8),
-                    arr.get(9),arr.get(10),arr.get(11));
+                    arr.get(9),arr.get(10),Integer.valueOf(arr.get(11)));
             questionInfoMapper.uploadFile(questionInfo);
         }
         return new FileUploadMessage(3, "success");

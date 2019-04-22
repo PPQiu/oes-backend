@@ -7,6 +7,18 @@
     <result column="examinfo_id" property="examinfoId" jdbcType="INTEGER" />
     <result column="questioninfo_id" property="questioninfoId" jdbcType="INTEGER" />
   </resultMap>
+
+  <resultMap id="ExamQuestionDTOMap" type="cn.aitechlab.oes.dto.ExamQuestionDTO" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="question_content" property="questionContent" jdbcType="VARCHAR" />
+    <result column="option_a" property="optionA" jdbcType="VARCHAR" />
+    <result column="option_b" property="optionB" jdbcType="VARCHAR" />
+    <result column="option_c" property="optionC" jdbcType="VARCHAR" />
+    <result column="option_d" property="optionD" jdbcType="VARCHAR" />
+    <result column="option_e" property="optionE" jdbcType="VARCHAR" />
+    <result column="option_f" property="optionF" jdbcType="VARCHAR" />
+    <result column="correct_score" property="correctScore" jdbcType="INTEGER" />
+  </resultMap>
   <sql id="Base_Column_List" >
 
     id, examinfo_id, questioninfo_id
@@ -76,4 +88,11 @@
       questioninfo_id = #{questioninfoId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectExamQuestionByexamName" resultMap="ExamQuestionDTOMap">
+    select c.id,c.question_content,c.option_a,c.option_b,c.option_c,c.option_d,c.option_e,c.option_f,c.correct_score
+    from examinfo a,exam b,questioninfo c
+    where a.id=b.examinfo_id and b.questioninfo_id=c.id and a.exam_name=#{examName};
+</select>
+
 </mapper>

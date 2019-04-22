@@ -1,6 +1,10 @@
 package cn.aitechlab.oes.dao;
 
+import cn.aitechlab.oes.dto.ExamQuestionDTO;
 import cn.aitechlab.oes.model.Exam;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ExamMapper {
 
@@ -20,4 +24,6 @@ public interface ExamMapper {
 
 
     int updateByPrimaryKey(Exam record);
+
+    List<ExamQuestionDTO> selectExamQuestionByexamName(@Param("examName") String examName);
 }

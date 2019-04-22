@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.aitechlab.oes.dao.AnswerPaperMapper" >
+  <resultMap id="BaseResultMap" type="cn.aitechlab.oes.model.AnswerPaper" >
+
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
+    <result column="answer_userid" property="answerUserid" jdbcType="VARCHAR" />
+    <result column="checked" property="checked" jdbcType="VARCHAR" />
+    <result column="finished" property="finished" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+
+    id, submit_time, paper_name, answer_userid, checked, finished
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+    select 
+    <include refid="Base_Column_List" />
+    from answerpaper
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+
+    delete from answerpaper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.aitechlab.oes.model.AnswerPaper" >
+
+    insert into answerpaper (id, submit_time, paper_name, 
+      answer_userid, checked, finished
+      )
+    values (#{id,jdbcType=INTEGER}, #{submitTime,jdbcType=TIMESTAMP}, #{paperName,jdbcType=VARCHAR}, 
+      #{answerUserid,jdbcType=VARCHAR}, #{checked,jdbcType=VARCHAR}, #{finished,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.aitechlab.oes.model.AnswerPaper" >
+
+    insert into answerpaper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="submitTime != null" >
+        submit_time,
+      </if>
+      <if test="paperName != null" >
+        paper_name,
+      </if>
+      <if test="answerUserid != null" >
+        answer_userid,
+      </if>
+      <if test="checked != null" >
+        checked,
+      </if>
+      <if test="finished != null" >
+        finished,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="submitTime != null" >
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paperName != null" >
+        #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerUserid != null" >
+        #{answerUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="checked != null" >
+        #{checked,jdbcType=VARCHAR},
+      </if>
+      <if test="finished != null" >
+        #{finished,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.aitechlab.oes.model.AnswerPaper" >
+
+    update answerpaper
+    <set >
+      <if test="submitTime != null" >
+        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paperName != null" >
+        paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerUserid != null" >
+        answer_userid = #{answerUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="checked != null" >
+        checked = #{checked,jdbcType=VARCHAR},
+      </if>
+      <if test="finished != null" >
+        finished = #{finished,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.aitechlab.oes.model.AnswerPaper" >
+
+    update answerpaper
+    set submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      paper_name = #{paperName,jdbcType=VARCHAR},
+      answer_userid = #{answerUserid,jdbcType=VARCHAR},
+      checked = #{checked,jdbcType=VARCHAR},
+      finished = #{finished,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

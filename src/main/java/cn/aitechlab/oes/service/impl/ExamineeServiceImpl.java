@@ -93,8 +93,8 @@ public class ExamineeServiceImpl implements ExamineeService {
         }
 
         for (ArrayList<String> arr : readResult) {
-            Examinee examinee=new Examinee(arr.get(0),arr.get(1),arr.get(2),
-                    arr.get(3),arr.get(4));
+            Examinee examinee=new Examinee(Integer.valueOf(arr.get(0)),arr.get(1),arr.get(2),
+                    arr.get(3),Byte.valueOf(arr.get(4)));
             examineeMapper.uploadExamineeFile(examinee);
         }
         return new FileUploadMessage(3, "success");
