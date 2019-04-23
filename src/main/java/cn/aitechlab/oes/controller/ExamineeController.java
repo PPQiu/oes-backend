@@ -25,7 +25,7 @@ public class ExamineeController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("user/login")
+    @PostMapping("/user/login")
 
     public Loginstate login(@RequestBody UserVo userVo) {
 
