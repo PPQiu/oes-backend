@@ -1,11 +1,11 @@
 package cn.aitechlab.oes.service.impl;
 
+import cn.aitechlab.oes.VO.LoginVO;
 import cn.aitechlab.oes.constsnt.Loginstate;
 import cn.aitechlab.oes.dao.AdminMapper;
 import cn.aitechlab.oes.dto.ExamScoreDTO;
+import cn.aitechlab.oes.dto.UserDTO;
 import cn.aitechlab.oes.model.Admin;
-import cn.aitechlab.oes.model.ExamScore;
-import cn.aitechlab.oes.model.Vo.UserVo;
 import cn.aitechlab.oes.service.AdminService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,27 +28,36 @@ public class AdminServiceImpl implements AdminService {
     //管理员登录
 
     @Override
-    public Loginstate login(UserVo userVo){
+    public LoginVO login(UserDTO userDTO){
 
-        String adminId = userVo.adminId;
-        String password = userVo.password;
+        LoginVO loginVO = new LoginVO();
+        String adminId = userDTO.adminId;
+        String password = userDTO.password;
 
         if (StringUtils.isBlank(adminId)) {
 
-            return new Loginstate(0, "账号不能为空");
+            loginVO.setSuccess(false);
+            loginVO.setMsg("账号不能为空");
+            return loginVO;
         }
         if (StringUtils.isBlank(password)) {
 
-            return new Loginstate(0, "密码不能为空");
+            loginVO.setSuccess(false);
+            loginVO.setMsg("密码不能为空");
+            return loginVO;
         }
 
 
         Admin admin = adminMapper.getAdminByadminId(adminId);
             if (admin == null){
 
-                return new Loginstate(0, "账号或密码错误");
+                loginVO.setSuccess(false);
+                loginVO.setMsg("账号或密码错误");
+                return loginVO;
             }
-            return new Loginstate(1, "登录成功");
+             loginVO.setSuccess(true);
+             loginVO.setMsg("登陆成功");
+             return loginVO;
         }
 
         @Override

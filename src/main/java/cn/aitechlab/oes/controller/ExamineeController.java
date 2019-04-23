@@ -1,9 +1,10 @@
 package cn.aitechlab.oes.controller;
 
+import cn.aitechlab.oes.VO.LoginVO;
 import cn.aitechlab.oes.constsnt.FileUploadMessage;
 import cn.aitechlab.oes.constsnt.Loginstate;
 
-import cn.aitechlab.oes.model.Vo.UserVo;
+import cn.aitechlab.oes.dto.UserDTO;
 import cn.aitechlab.oes.service.AdminService;
 import cn.aitechlab.oes.service.ExamineeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +28,20 @@ public class ExamineeController {
 
     @PostMapping("/user/login")
 
-    public Loginstate login(@RequestBody UserVo userVo) {
+    public LoginVO login(@RequestBody UserDTO userDTO) {
 
-        Byte userType = userVo.userType;
+        Byte userType = userDTO.userType;
 
         if(userType == 1){
 
-            Loginstate loginstate = examineeService.login(userVo);
+            LoginVO loginVO = examineeService.login(userDTO);
 
-            return loginstate;
+            return loginVO;
         }else{
 
-            Loginstate loginstate = adminService.login(userVo);
+            LoginVO loginVO = adminService.login(userDTO);
 
-            return loginstate;
+            return loginVO;
         }
 
     }

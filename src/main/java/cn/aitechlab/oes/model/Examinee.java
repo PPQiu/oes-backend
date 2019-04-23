@@ -24,12 +24,4 @@ public class Examinee {
     //用户类型
 
     public Byte userType;
-
-    public Examinee(Integer id, String userId, String userName, String identityNum, Byte userType) {
-        this.id = id;
-        this.userId = userId;
-        this.userName = userName;
-        this.identityNum = identityNum;
-        this.userType = userType;
-    }
 }

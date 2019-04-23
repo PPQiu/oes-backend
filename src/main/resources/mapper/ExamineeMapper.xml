@@ -99,7 +99,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getExamineeByuserId" resultType="Examinee">
-        select user_id,user_name,identity_num,user_type from examinee where user_id=#{userId}
-    </select>
+  <select id="getExamineeByuserId" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from examinee
+    where
+    user_id = #{userId,jdbcType=VARCHAR}
+  </select>
 </mapper>

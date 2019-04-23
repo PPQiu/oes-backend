@@ -1,8 +1,9 @@
 package cn.aitechlab.oes.service;
 
+import cn.aitechlab.oes.VO.LoginVO;
 import cn.aitechlab.oes.constsnt.Loginstate;
 import cn.aitechlab.oes.dto.ExamScoreDTO;
-import cn.aitechlab.oes.model.Vo.UserVo;
+import cn.aitechlab.oes.dto.UserDTO;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public interface AdminService {
 
-    Loginstate login(UserVo userVo);
+    LoginVO login(UserDTO userDTO);
 
     List<ExamScoreDTO> getExamineeScore(String examSubject,String examDate);
 

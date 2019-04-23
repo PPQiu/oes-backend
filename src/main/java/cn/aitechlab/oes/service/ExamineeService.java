@@ -1,8 +1,8 @@
 package cn.aitechlab.oes.service;
 
+import cn.aitechlab.oes.VO.LoginVO;
 import cn.aitechlab.oes.constsnt.FileUploadMessage;
-import cn.aitechlab.oes.constsnt.Loginstate;
-import cn.aitechlab.oes.model.Vo.UserVo;
+import cn.aitechlab.oes.dto.UserDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface ExamineeService {
 
-    Loginstate login(UserVo userVo);
+    LoginVO login(UserDTO userDTO);
 
     FileUploadMessage uploadExamineeFile(MultipartFile file);
 
